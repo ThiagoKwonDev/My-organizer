@@ -1,0 +1,52 @@
+/* Estilo para o cabeçalho da sidebar */
+.sidebar-header {
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255, 153, 102, 0.8);;
+  color: black;
+}
+
+/* Sidebar */
+#sidebar {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  padding-top: 20px;
+  background-color: #f8f9fa;
+}
+
+#sidebar .nav {
+  gap: 10px;
+}
+
+/* Estilo das opções do menu */
+#sidebar .nav-link {
+  gap: 10px;
+  width: 100%;
+  font-size: 18px;
+  padding: 15px 20px;
+  color: #333;
+  transition: background-color 0.4s;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+/* Efeito de Hover nas opções */
+#sidebar .nav-link:hover {
+  background-color: rgba(255, 153, 102, 0.8);;
+  color: black;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+/* Conteúdo principal */
+main {
+  margin-left: 250px;
+  /* Deixa espaço para a sidebar */
+  padding: 20px;
+
+  // .content {}
+}

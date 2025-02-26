@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar com Navbar à Esquerda -->
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <!-- Cabeçalho da Sidebar -->
+        <h2 class="sidebar-header text-center">Expense Organizer</h2>
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <button class="nav-link d-flex align-items-center">
+              <mat-icon>event</mat-icon> Planner
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Welcome to the best expense organizer!</h1>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <app-planner></app-planner>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+#modal-planner-component {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+
+    .modal-header {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        background-color: rgba(255, 153, 102, 0.8);
+        ;
+        border-radius: 15px;
+        padding: 20px;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .modal-footer {
+        gap: 10px;
+    }
+
+    .text-danger {
+        color: red;
+        font-size: 0.875rem;
+    }
+
+    small {
+        display: block;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,35 @@
+<div id="modal-planner-component">
+  <div class="modal-header">
+    <h3>Create planner</h3>
+  </div>
+  <div class="modal-content">
+    <form [formGroup]="form">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Type the expense name">
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="text-danger">
+          <small *ngIf="form.get('name')?.hasError('required')">Name is required.</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Value</label>
+        <input type="text" class="form-control" formControlName="value" placeholder="Type the expense value" (input)="formatValue($event)">
+        <div *ngIf="form.get('value')?.invalid && form.get('value')?.touched" class="text-danger">
+          <small *ngIf="form.get('value')?.hasError('required')">Value is required.</small>
+          <small *ngIf="form.get('value')?.hasError('pattern')">Value must be a number.</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Expense final date</label>
+        <input type="date" class="form-control" formControlName="finalDate">
+        <div *ngIf="form.get('finalDate')?.invalid && form.get('finalDate')?.touched" class="text-danger">
+          <small *ngIf="form.get('finalDate')?.hasError('required')">Expense final date is required.</small>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="teste()">Save</button>
+    <button type="button" class="btn btn-danger" (click)="close()">Close</button>
+  </div>
+</div>
