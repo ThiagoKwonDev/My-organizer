@@ -7,6 +7,7 @@ import { Planner } from '../../../dtos/planner.dto';
 
 @Component({
   selector: 'app-modal-planner',
+  standalone: true,
   imports: [ReactiveFormsModule, NgIf],
   templateUrl: './modal-planner.component.html',
   styleUrl: './modal-planner.component.scss'
@@ -16,7 +17,7 @@ export class ModalPlannerComponent {
   form: FormGroup;
   planner = new Planner();
 
-  constructor(public dialogRef: MatDialogRef<ModalPlannerComponent>, private fb: FormBuilder) {
+  constructor(public dialogRef: MatDialogRef<ModalPlannerComponent>, private fb: FormBuilder, private plannerService: PlannerService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       value: ['', [Validators.required, Validators.pattern('^[0-9]*\.?[0-9]{0,2}$')]],
@@ -42,29 +43,20 @@ export class ModalPlannerComponent {
       control?.updateValueAndValidity();
     });
     if (this.form.valid) {
-      this.planner.title = this.form.get('name')?.value;
-      this.planner.expanse_value = parseFloat(this.form.get('value')?.value);
-      this.planner.expire_date = this.form.get('finalDate')?.value;
-      console.log(this.planner)
-      // this.plannerService.createPlanner(this.planner).subscribe(res => {
-      //   console.log(res.body)
-      // })
-      //this.dialogRef.close();
+      this.planner.name = this.form.get('name')?.value;
+      this.planner.value = parseFloat(this.form.get('value')?.value);
+      this.planner.final_date = this.form.get('finalDate')?.value;
+      this.plannerService.createPlanner(this.planner).subscribe(res => {
+        if (res) {
+          this.dialogRef.close();
+
+        }
+      })
     } else {
     }
   }
 
   close(): void {
     this.dialogRef.close();
-  }
-  teste() {
-    let teste = new Planner();
-    teste.id = 1;
-    teste.title = "teste";
-    teste.expanse_value = 12;
-    teste.expire_date = "2025-02-06";
-    // this.plannerService.createPlanner(teste).subscribe(res => {
-    //   console.log(res.body)
-    // })
   }
 }

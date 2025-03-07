@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-planner',
+  standalone: true,
   imports: [MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './planner.component.html',
   styleUrl: './planner.component.scss'
